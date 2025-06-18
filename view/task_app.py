@@ -41,3 +41,6 @@ class TaskApp:
 
     def show_error(self, message):
         messagebox.showerror("Erro", message)
+
+    def show_info(self, message):
+        messagebox.showinfo("Info", message)

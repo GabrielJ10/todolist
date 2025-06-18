@@ -20,3 +20,8 @@ class AppController:
         self.model.delete_task(index)
         self.view.populate(self.model.get_all())
         self.view.show_info("Tarefa deletada com sucesso")
+
+    def edit_task(self, index, new_text):
+        self.model.edit_task(index, new_text)
+        self.view.populate(self.model.get_all())
+        self.view.show_info("Tarefa editada com sucesso")

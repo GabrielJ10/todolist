@@ -16,5 +16,13 @@ class TaskManager:
             self.tasks.pop(index)
             save_tasks(self.tasks)
 
+    def edit_task(self, index, new_text):
+        new_text = new_text.strip()
+        if not new_text:
+            raise ValueError("Tarefa não pode ser vazia")
+        if 0 <= index < len(self.tasks):
+            self.tasks[index]["text"] = new_text
+            save_tasks(self.tasks)
+
     def get_all(self):
         return self.tasks

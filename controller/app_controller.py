@@ -7,12 +7,11 @@ class AppController:
         self.view.set_controller(self)
         self.view.populate(self.model.get_all())
 
-    def add_task(self, text):
+    def add_task(self, text, prioridade):
         try:
-            self.model.add_task(text)
+            self.model.add_task(text, prioridade)
             self.view.populate(self.model.get_all())
             self.view.show_info("Tarefa adicionada com sucesso")
-
         except ValueError:
             self.view.show_error("Não é permitido tarefa vazia")
 
@@ -25,6 +24,10 @@ class AppController:
         self.model.edit_task(index, new_text)
         self.view.populate(self.model.get_all())
         self.view.show_info("Tarefa editada com sucesso")
+
+    def atualizar_prioridade(self, index, nova_prioridade):
+        self.model.editar_prioridade(index, nova_prioridade)
+        self.view.populate(self.model.get_all())
 
     def marcar_concluida(self, index):
             self.model.set_status(index, "done")

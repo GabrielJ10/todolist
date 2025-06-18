@@ -4,11 +4,12 @@ class TaskManager:
     def __init__(self):
         self.tasks = load_tasks()
 
-    def add_task(self, text):
+    def add_task(self, text, prioridade = "Média"):
         text = text.strip()
         if not text:
             raise ValueError("Tarefa vazia não permitida")
-        self.tasks.append({"text": text, "status": "none"})
+        prioridade = prioridade.strip()
+        self.tasks.append({"text": text, "status": "none", "prioridade": prioridade})
         save_tasks(self.tasks)
 
     def set_status(self, index, status):
@@ -27,6 +28,11 @@ class TaskManager:
             raise ValueError("Tarefa não pode ser vazia")
         if 0 <= index < len(self.tasks):
             self.tasks[index]["text"] = new_text
+            save_tasks(self.tasks)
+
+    def editar_prioridade(self, index, prioridade):
+        if 0 <= index < len(self.tasks):
+            self.tasks[index]["prioridade"] = prioridade
             save_tasks(self.tasks)
 
     def get_all(self):

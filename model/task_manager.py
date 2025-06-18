@@ -5,6 +5,9 @@ class TaskManager:
         self.tasks = load_tasks()
 
     def add_task(self, text):
+        text = text.strip()
+        if not text:
+            raise ValueError("Tarefa vazia não permitida")
         self.tasks.append({"text": text, "completed": False})
         save_tasks(self.tasks)
 

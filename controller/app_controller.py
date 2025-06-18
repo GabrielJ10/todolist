@@ -25,3 +25,15 @@ class AppController:
         self.model.edit_task(index, new_text)
         self.view.populate(self.model.get_all())
         self.view.show_info("Tarefa editada com sucesso")
+
+    def marcar_concluida(self, index):
+            self.model.set_status(index, "done")
+            self.view.populate(self.model.get_all())
+
+    def marcar_pendente(self, index):
+            self.model.set_status(index, "pending")
+            self.view.populate(self.model.get_all())
+
+    def limpar_marcacao(self, index):
+            self.model.set_status(index, "none")
+            self.view.populate(self.model.get_all())

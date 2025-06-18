@@ -8,8 +8,13 @@ class TaskManager:
         text = text.strip()
         if not text:
             raise ValueError("Tarefa vazia não permitida")
-        self.tasks.append({"text": text, "completed": False})
+        self.tasks.append({"text": text, "status": "none"})
         save_tasks(self.tasks)
+
+    def set_status(self, index, status):
+        if 0 <= index < len(self.tasks):
+            self.tasks[index]["status"] = status  # 'done', 'pending', or 'none'
+            save_tasks(self.tasks)
 
     def delete_task(self, index):
         if 0 <= index < len(self.tasks):

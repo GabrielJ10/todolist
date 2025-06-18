@@ -1,56 +1,97 @@
-# Python To-Do List
-![DF](https://github.com/Himel-Sarder/To-Do-List-using-Tkinter/assets/143216886/d2d88feb-f3ec-4c6e-b439-bb43e3909ead)
+# 📝 Python To-Do List com Tkinter (MVC)
 
-![V](https://github.com/Himel-Sarder/To-Do-List-using-Tkinter/assets/143216886/2bf0e9f3-5f89-4f18-9a48-ad10ef4a3fc4)
+Este projeto é uma aplicação de lista de tarefas (To-Do List) desenvolvida em **Python**, utilizando a biblioteca **Tkinter** para a interface gráfica e o padrão arquitetural **MVC (Model-View-Controller)** para uma melhor organização e separação de responsabilidades.
 
-![Z](https://github.com/Himel-Sarder/To-Do-List-using-Tkinter/assets/143216886/0c508df1-5fc0-4abc-a8a5-fe3c3c95e8bc)
+A aplicação permite adicionar, editar, excluir e marcar tarefas com status e prioridade, além de manter persistência dos dados em um arquivo `.json`.
 
-This is a simple to-do list application built using Python and Tkinter GUI library. It allows users to add tasks to a list, mark them as completed, and delete them when needed.
+---
 
-## Features
+## 📌 Funcionalidades
 
-- **Add Task:** Enter a task in the input field and click "Add Task" to add it to the list.
-- **Delete Task:** Select a task from the list and click "Delete Task" to remove it.
-- **Responsive GUI:** The application provides a simple and responsive user interface for managing tasks.
+- ✅ **Adicionar tarefas** com definição de prioridade (Alta, Média ou Baixa).
+- ✏️ **Editar tarefas**, incluindo o texto e a prioridade. (duplo clique)
+- 🗑️ **Excluir tarefas** selecionadas.
+- 🟢 **Marcar tarefas como concluídas**, em andamento ou remover a marcação.
+- 💾 **Persistência automática** em arquivo `tasks.json`.
+- 🎨 **Coloração visual** da tarefa com base no status:
+  - Verde: Concluída
+  - Amarelo: Em andamento
+  - Branco: Pendente
 
-## Requirements
+---
 
+## 🧱 Estrutura do Projeto
+
+📦 projeto-todo-list
+```
+├── controller/
+│ └── app_controller.py # Lógica da aplicação (Controller)
+├── model/
+│ └── task_manager.py # Regras de negócio e persistência (Model)
+├── view/
+│ └── task_app.py # Interface gráfica (View)
+├── tasks.json # Armazenamento persistente das tarefas
+├── persistence.py # Módulo utilitário de persistência
+└── main.py # Ponto de entrada da aplicação
+```
+
+
+
+## 🎯 Padrão MVC
+
+- **Model (`model/task_manager.py`)**: Responsável pelas regras de negócio, manipulação da lista de tarefas e persistência em JSON.
+- **View (`view/task_app.py`)**: Interface gráfica usando Tkinter. Captura ações do usuário e exibe feedback.
+- **Controller (`controller/app_controller.py`)**: Intermedia a comunicação entre a View e o Model.
+
+---
+
+## 🚀 Como executar
+
+### ✅ Requisitos
 - Python 3.x
-- Tkinter (usually included in Python standard library)
+- Tkinter (já incluso na maioria das distribuições Python)
 
-## Installation
+### 🔧 Instalação e execução
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/Himel-Sarder/python-todo-list.git
-   ```
-
-2. Navigate to the project directory:
+1. Clone este repositório:
 
    ```bash
-   cd python-todo-list
+   git clone https://https://github.com/GabrielJ10/todolist.git
+   cd projeto-todo-list
    ```
-
-3. Run the application:
-
+2.Execute a aplicação:
    ```bash
-   python todo_list.py
+   python main.py
    ```
 
-## Usage
+---
 
-1. Enter a task in the input field.
-2. Click "Add Task" to add the task to the list.
-3. Select a task from the list to delete it.
-4. Manage your to-do list easily with this simple application!
+## 🖼️ Interface Gráfica
+A interface é simples, intuitiva e organizada:
 
-## Contributing
+- Campo para digitar nova tarefa
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue for any bugs or feature requests.
+- Seleção de prioridade via botões de rádio
 
-## License
+- Lista de tarefas com destaque visual por status
 
-This project is licensed under the [MIT License](LICENSE).
+- Botões de ação: Adicionar, Editar (duplo clique), Excluir, Marcar como concluída, em andamento ou limpar marcação
 
-## Thank You
+---
+
+## 🧪 Exemplo de uso
+- Escreva a tarefa no campo de entrada.
+
+- Escolha uma prioridade (Alta, Média ou Baixa).
+
+- Clique em Adicionar.
+
+- Para editar, dê duplo clique em uma tarefa.
+
+- Para excluir, selecione a tarefa e clique em Excluir.
+
+- Use os botões de marcação para controlar o andamento.
+
+## 📂 Persistência
+
+As tarefas são salvas automaticamente no arquivo tasks.json, garantindo que os dados não sejam perdidos ao fechar o programa.
